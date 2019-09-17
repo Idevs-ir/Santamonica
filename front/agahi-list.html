@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset=utf-8>
+  <title>لیست - آگهی ها</title>
+  <link rel="stylesheet" href="css/animation.min.css">
+  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="stylesheet" href="css/main.min.css">
+  <script src="js/persian-date.min.js" charset="utf-8"></script>
+</head>
+<body>
+  <div class="result">
+    <p>داده ذخیره شد</p>
+  </div>
+  <input id="type" type="hidden"  value="video">
+  <header>
+    <div class="header">
+      <img class="logo" src="img/logo.png" alt="logo">
+      <div class="exit">
+        <a href="logout.php">خروج</a>
+      </div>
+      <div class="title">
+        <h1>محتوای ویدیویی</h1>
+        <p id="date"></p>
+      </div>
+      <a class="header-nav" href="#">لیست ویدیو ها</a>
+    </div>
+  </header>
+  <aside class="sidebar">
+    <ul>
+      <li><a href="setAudio.php">محتوای صوتی</a><img src='img/audio2.svg'></li>
+      <li class="active"><a href="setVideo.php">محتوای ویدیویی</a><img src='img/video2.svg'></li>
+      <li>محتوای متنی<img src='img/book2.svg'>
+        <ul class="sub-menu" >
+          <li><a href="setSimple.php">متن ساده</a></li>
+          <li><a href="setAshar.php">اشعار آیینی</a></li>
+          <li><a href="setQuran.php">قرآن کریم</a></li>
+          <li><a href="setDoa.php">دعا و ترجمه</a></li>
+        </ul>
+      </li>
+      <li>محتوای متنی<img src='img/book2.svg'>
+        <ul class="sub-menu" >
+          <li><a href="setSimple.php">متن ساده</a></li>
+          <li><a href="setAshar.php">اشعار آیینی</a></li>
+          <li><a href="setQuran.php">قرآن کریم</a></li>
+          <li><a href="setDoa.php">دعا و ترجمه</a></li>
+        </ul>
+      </li>
+      <li><a href="setAksneveshte.php">عکس نوشته</a><img src='img/photo2.svg'></li>
+      <li><a href="setAmaken.php">اماکن مذهبی</a><img src='img/shrine2.svg'></li>
+      <li><a href="setSlide.php">لینک و اسلاید</a><img src='img/slide2.svg'></li>
+      <li><a href="reports.php">گزارشات</a><img src='img/report.svg'></li>
+      <li><a href="settings.php">تنظیمات</a><img src='img/setting.svg'></li>
+    </ul>
+  </aside>
+  <main id="video-tab">
+    <div class="container">
+      <div class="full-box">
+        <div class="tool-box">
+          <button type="button">جستجو</button>
+          <input type="text" name="search"  placeholder="جست و جو ...">
+          <a class="selected" href="#">آخرین بارگذاری</a>
+          <a href="#">تاریخ</a>
+        </div>
+        <div class="content-box">
+          <img src="img/sample_preview.jpg" alt="preview">
+          <div class="title-box">
+            <p style="font-weight:bold; color:#a5a5a5;">نام داده</p>
+            <p style="color:#2eccd9;" >دسته بندی اصلی : <span>فهرست</span></p>
+            <p>دسته بندی فرعی : <span>بیلیسبل</span></p>
+          </div>
+          <div class="button-box">
+            <button type="button" class='view-btn' onclick="modal('content')">نمایش</button>
+            <button type="button" class='edit-btn'>ویرایش</button>
+            <button type="button" class='delete-btn'>حذف</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- modals -->
+  <div class="modal">
+    <button class="close"></button>
+    <div class="modal-box">
+      <div id="content-modal" class="table-modal">
+
+      </div>
+    </div>
+  </div>
+  <script src="js/jquery-3.3.1.min.js" charset="utf-8"></script>
+  <script src="js/functions.js" charset="utf-8"></script>
+<script type="text/javascript">
+  document.getElementById('date').innerHTML = new persianDate().format('dddd DD MMMM YYYY');
+</script>
+</body>
+</html>

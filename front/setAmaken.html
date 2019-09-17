@@ -1,0 +1,207 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset=utf-8>
+  <title>داده جدید - اماکن</title>
+  <link rel="stylesheet" href="css/animation.min.css">
+  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="stylesheet" href="css/main.min.css">
+  <script src="js/persian-date.min.js" charset="utf-8"></script>
+</head>
+<body>
+  <div class="result">
+    <p>داده ذخیره شد</p>
+  </div>
+  <input id="type" type="hidden"  value="video">
+  <head>
+    <div class="header">
+      <img class="logo" src="img/logo.png" alt="logo">
+      <div class="exit">
+        <a href="logout.php">خروج</a>
+      </div>
+      <div class="title">
+        <h1>اماکن مذهبی</h1>
+        <p id="date"></p>
+      </div>
+    </div>
+  </head>
+  <aside class="sidebar">
+    <ul>
+      <li><a href="setAudio.php">محتوای صوتی</a><img src='img/audio2.svg'></li>
+      <li><a href="setVideo.php">محتوای ویدیویی</a><img src='img/video2.svg'></li>
+      <li>محتوای متنی<img src='img/book2.svg'>
+        <ul class="sub-menu" >
+          <li><a href="setSimple.php">متن ساده</a></li>
+          <li><a href="setAshar.php">اشعار آیینی</a></li>
+          <li><a href="setQuran.php">قرآن کریم</a></li>
+          <li><a href="setDoa.php">دعا و ترجمه</a></li>
+        </ul>
+      </li>
+      <li><a href="setAksneveshte.php">عکس نوشته</a><img src='img/photo2.svg'></li>
+      <li class="active"><a href="setAmaken.php">اماکن مذهبی</a><img src='img/shrine2.svg'></li>
+      <li><a href="setSlide.php">لینک و اسلاید</a><img src='img/slide2.svg'></li>
+      <li><a href="reports.php">گزارشات</a><img src='img/report.svg'></li>
+      <li><a href="settings.php">تنظیمات</a><img src='img/setting.svg'></li>
+    </ul>
+  </aside>
+  <main>
+    <div class="container">
+      <div class="box">
+        <div class="person">
+          <p>تصویر اول</p>
+          <div id='first-image' class="preview">
+          </div>
+        </div>
+        <div class="video">
+          <p>تصویر دوم</p>
+          <div id='second-image' class="preview">
+          </div>
+        </div>
+        <div class="video">
+          <p>تصویر سوم</p>
+          <div id='third-image' class="preview">
+          </div>
+        </div>
+      </div>
+      <div class="box">
+        <form class="form" action="core/add-video.php" method="post" enctype="multipart/form-data">
+          <div class="form-controll">
+            <input type="text" name="title" placeholder="عنوان ...">
+          </div>
+          <div class="form-controll">
+            <div class="form-controll-both">
+              <select  id='ostan' name="ostan" >
+                <option value="-">انتخاب استان</option>
+              </select>
+              <button type="button" onclick="modal('maincat-modal')">استان جدید + </button>
+            </div>
+          </div>
+          <div class="form-controll">
+            <div class="form-controll-both">
+              <select id='shahr' name="shahr">
+                <option value="-">انتخاب شهر</option>
+              </select>
+              <button type="button" onclick="modal('precat-modal')">شهر جدید + </button>
+            </div>
+          </div>
+          <div class="form-controll">
+            <div class="form-controll-both">
+              <select id='roosta' name="roosta">
+                <option value="-">انتخاب روستا</option>
+              </select>
+              <button type="button" onclick="modal('name-modal')">اضافه کردن روستا + </button>
+            </div>
+          </div>
+          <div class="form-controll">
+            <div class="form-controll-both">
+              <div class="input-file-container">
+                <input class="input-file" id="first-image" type="file" name="first-image" accept="image/*">
+                <label tabindex="0" for="first-image" class="input-file-trigger">انتخاب عکس اول</label>
+              </div>
+              <div class="input-file-container">
+                <input class="input-file" id="second-image" type="file" name="second-image" accept="image/*">
+                <label tabindex="0" for="second-image" class="input-file-trigger">انتخاب عکس دوم</label>
+              </div>
+              <div class="input-file-container">
+                <input class="input-file" id="third-image" type="file" name="third-image" accept="image/*">
+                <label tabindex="0" for="third-image" class="input-file-trigger">انتخاب عکس سوم</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-controll">
+            <input type="text" name="link" placeholder="درج لینک ...">
+          </div>
+          <div class="form-controll">
+            <input type="submit" name="submit" value="ثبت اطلاعات">
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- modals -->
+  <div class="modal">
+    <button class="close"></button>
+    <div class="modal-box">
+      <div id="name-modal" class="table-modal">
+        <p>روستا جدید</p>
+        <div class="add-box">
+          <label for="tag">نام : </label>
+          <input  id="field-roosta-name" type="text" name="name" placeholder="نام روستا ...">
+          <button id ='add-roosta'>اضافه</button>
+          <button id='edit-roosta' style="display:none;">ویرایش</button>
+        </div>
+        <hr>
+        <table>
+          <thead>
+            <tr>
+              <th>نام</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+      <div id="maincat-modal" class="table-modal">
+        <p>دسته بندی اصلی جدید</p>
+        <div class="add-box">
+          <label for="tag">نام : </label>
+          <input id="field-maincat-name" type="text" name="name" placeholder="نام دسته بندی ...">
+          <button id ='add-maincat'>اضافه</button>
+          <button id='edit-maincat' style="display:none;">ویرایش</button>
+        </div>
+        <hr>
+        <table>
+          <thead>
+            <tr>
+              <th>نام</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>دسته بندی 1</td>
+              <td><button class="edit">ویرایش</button></td>
+              <td><button class="delete">حذف</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="precat-modal" class="table-modal">
+        <p>دسته بندی فرعی جدید</p>
+        <div class="add-box">
+          <label for="tag">نام : </label>
+          <input id="field-precat-name" type="text" name="name" placeholder="نام دسته بندی ...">
+          <button id ='add-precat'>اضافه</button>
+          <button id='edit-precat' style="display:none;">ویرایش</button>
+        </div>
+        <hr>
+        <table>
+          <thead>
+            <tr>
+              <th>نام</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>دسته بندی 1</td>
+              <td><button class="edit">ویرایش</button></td>
+              <td><button class="delete">حذف</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <script src="js/jquery-3.3.1.min.js" charset="utf-8"></script>
+  <script src="js/functions.js" charset="utf-8"></script>
+<script type="text/javascript">
+  document.getElementById('date').innerHTML = new persianDate().format('dddd DD MMMM YYYY');
+</script>
+</body>
+</html>
