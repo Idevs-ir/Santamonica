@@ -90,6 +90,8 @@ class AcademyController extends Controller
      */
     public function destroy(academy $academy)
     {
-        //
+        $academy->delete();
+        session()->flash('success','با موفقیت حذف شد');
+        return redirect()->route('admin-academy');
     }
 }

@@ -13,8 +13,8 @@
           </div>
           <div class="button-box">
           <button type="button" class='view-btn' onclick="modal('content'); showItem('{{ route('admin-academy-show' , [ 'academy' => $item->id ]) }}')">نمایش</button>
-            <button type="button" class='edit-btn'>ویرایش</button>
-            <button type="button" class='delete-btn'>حذف</button>
+            <button type="button" class='edit-btn' onclick="window.location = '{{ route('admin-academy-edit' , ['academy'=>$item->id])}}'">ویرایش</button>
+            <button type="button" class='delete-btn' onclick="window.location = '{{ route('admin-academy-delete' , ['academy'=>$item->id])}}'">حذف</button>
           </div>
         </div>
         @endforeach

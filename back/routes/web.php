@@ -33,7 +33,7 @@ Route::prefix('administrator')->middleware('auth')->group(function(){
     Route::get('team/new', 'HomeController@index')->name('admin-team-new');
 
     Route::get('videos/delete/{id}', 'HomeController@index')->name('admin-videos-delete');
-    Route::get('academy/delete/{id}', 'HomeController@index')->name('admin-academy-delete');
+    Route::get('academy/delete/{academy}', 'AcademyController@destroy')->name('admin-academy-delete');
     Route::get('pictures/delete/{id}', 'HomeController@index')->name('admin-pictures-delete');
     Route::get('team/delete/{id}', 'HomeController@index')->name('admin-team-delete');
 
