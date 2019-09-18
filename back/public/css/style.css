@@ -97,7 +97,7 @@ main{
 	transition: .5s;
 }
 
-.login-form input:first-child{
+.login-form input[type=email]{
 	background: url('../img/user.svg');
 	background-repeat: no-repeat;
 	background-position: calc(100% - 10px) 5px;
@@ -113,7 +113,7 @@ main{
 
 .login-form input:focus{
 	border-color: #2eccd9;
-	background: none;
+	background-position: calc(100% - 10px) -25px;
 	padding-right: 10px;
 }
 .login-form{
@@ -135,4 +135,12 @@ main{
 		border-color: #2eccd9;
 		color: #2eccd9;
 		background-color: white;
+}
+
+.invalid-feedback{
+	text-align: center;
+	color: white;
+	background: tomato;
+	padding:5px 10px;
+	border-radius: 5px;
 }

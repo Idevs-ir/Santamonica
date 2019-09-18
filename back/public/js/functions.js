@@ -1,4 +1,4 @@
-function modal( name )
+function modal( name  )
 {
   $('#name-modal').css('display','none');
   $('#maincat-modal').css('display','none');
@@ -10,20 +10,40 @@ $('.close').on('click',function(){
   $('.modal').css('display','none');
 });
 
-$('#cover').on('change', function(){
-  coverPrev(this);
-});
-$('#file').on('change', function(){
-  videoPrev(this);
-});
-$('#person').on('change', function(){
-  personPrev(this);
-});
-$('#maincat').on('change', function(){
-  showPreCats(this);
-  showPreCatsTable(this);
-});
 
+function showItem(url)
+{
+  $('#content-modal').html('');
+  $.ajax({
+    url: url,
+    type: "GET",
+    processData: false,
+    contentType: false,
+    dataType: 'json',
+    success: function (data) {
+      if(data.title)
+      {
+        $('#content-modal').append("<h3>"+data.title+"</h3>");
+      }
+      if(data.video)
+      {
+        $('#content-modal').append("<video src='"+data.video+"' controls></video>");
+      }
+      if(data.image)
+      {
+        $('#content-modal').append("<img src='"+data.image+"' >");
+      }
+      if(data.description)
+      {
+        $('#content-modal').append("<p>"+data.title+"</p>");
+      }
+      if(data.created_at)
+      {
+        $('#content-modal').append("<p>تاریخ : " + data.created_at + "</p>");
+      }
+    }
+  });
+}
 
 
 function coverPrev(input) {
@@ -51,58 +71,3 @@ function videoPrev(input) {
   }
 }
 
-function personPrev(op)
-{
-  var formdata = new FormData();
-  formdata.append('id', $(op).val());
-  $.ajax({
-    url: "../core/getPersonImage.php",
-    data: formdata ,
-    type: "POST",
-    processData: false,
-    contentType: false,
-    dataType: 'text',
-    success: function (data) {
-      $('#person-image').html("<img src='' alt='preview' >");
-      $('#person-prev img').attr('src', data);
-    }
-  });
-}
-
-function showPreCats(op)
-{
-  var type = $('#type').val();
-  var formdata = new FormData();
-  formdata.append('main', $(op).val());
-  formdata.append('type', type);
-  $.ajax({
-    url: "../core/getPreCatOption.php",
-    data: formdata ,
-    type: "POST",
-    processData: false,
-    contentType: false,
-    dataType: 'text',
-    success: function (data) {
-      $('#precat').html(data);
-    }
-  });
-}
-
-function showPreCatsTable(op)
-{
-  var type = $('#type').val();
-  var formdata = new FormData();
-  formdata.append('main', $(op).val());
-  formdata.append('type', type);
-  $.ajax({
-    url: "../core/getPreCatTable.php",
-    data: formdata ,
-    type: "POST",
-    processData: false,
-    contentType: false,
-    dataType: 'text',
-    success: function (data) {
-      $('#precat').html(data);
-    }
-  });
-}

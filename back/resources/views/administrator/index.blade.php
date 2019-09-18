@@ -10,9 +10,13 @@
 <body>
 <header>
     <div class="header">
-      <img class="logo" src="img/logo.png" alt="logo">
+      <img class="logo" src="{{ asset('img/logo.png')}}" alt="logo">
       <div class="exit">
-      <a href="{{ route('logout') }}">خروج</a>
+      <a href="{{ route('logout') }}" onclick="event.preventDefault();
+      document.getElementById('logout-form').submit();">خروج</a>
+      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+    </form>
       </div>
       <div class="title">
       <h1>{{ $title }}</h1>
@@ -24,95 +28,73 @@
     <div class="container">
       <div class="box">
         <div class="head-box">
-          <img src="img/book.svg">
-          <p onclick="window.location = 'text.php'" >محتوای متنی</p>
+          <img src="{{ asset('img/video.svg')}}">
+        <p onclick="window.location = '{{ route('admin-videos')}}'">ویدیو ها</p>
         </div>
-        <p class="count">تعداد کل محتوا : <span id='total-count'>10</span></p>
+      <p class="count">تعداد کل محتوا : <span id='total-count'>{{ $count['videos'] }}</span></p>
         <hr>
         <div class="log">
-          <p>آخرین بارگذاری : <span id='last-change'>1396/07/08</span></p>
-          <p>توسط : <span id='authur'>alireza</span></p>
-          <p>تعداد محتوای بارگذاری شده : <span id='authur-post'>120</span></p>
+          <p>آخرین بارگذاری : <span id='last-change'>{{ $timestamps['videos'] }}</span></p>
+          <p>توسط : <span id='authur'>Admin</span></p>
+          <p>تعداد محتوای بارگذاری شده : <span id='authur-post'>{{ $count['videos'] }}</span></p>
         </div>
-        <div class="more" onclick="showMenu(this , 'matni');"></div>
-        <div id='matni-menu' class="menu">
-          <span class="close" onclick="closeMenu('matni');">x</span>
-          <a href="setSimple.php">متن ساده</a>
-          <a href="setAshar.php">اشعار آیینی</a>
-          <a href="setQuran.php">قرآن کریم</a>
-          <a href="setDoa.php">متن دعا و ترجمه</a>
-        </div>
+        <div class="more" onclick="window.location = '{{ route('admin-videos-new')}}'"></div>
       </div>
       <div class="box">
         <div class="head-box">
-          <img src="img/video.svg">
-          <p onclick="window.location = 'video.php'">محتوای ویدیویی</p>
+          <img src="{{ asset('img/audio.svg')}}">
+          <p onclick="window.location = '{{ route('admin-academy')}}'">آکادمی</p>
         </div>
-        <p class="count">تعداد کل محتوا : <span id='total-count'>10</span></p>
+        <p class="count">تعداد کل محتوا : <span id='total-count'>{{ $count['academy'] }}</span></p>
         <hr>
         <div class="log">
-          <p>آخرین بارگذاری : <span id='last-change'>1396/07/08</span></p>
-          <p>توسط : <span id='authur'>alireza</span></p>
-          <p>تعداد محتوای بارگذاری شده : <span id='authur-post'>120</span></p>
+          <p>آخرین بارگذاری : <span id='last-change'>{{ $timestamps['academy'] }}</span></p>
+          <p>توسط : <span id='authur'>Admin</span></p>
+          <p>تعداد محتوای بارگذاری شده : <span id='authur-post'>{{ $count['academy'] }}</span></p>
         </div>
-        <div class="more" onclick="window.location = 'setVideo.php'"></div>
+        <div class="more" onclick="window.location = '{{ route('admin-academy-new')}}'"></div>
       </div>
       <div class="box">
         <div class="head-box">
-          <img src="img/audio.svg">
-          <p onclick="window.location = 'audio.php'">محتوای صوتی</p>
+          <img src="{{ asset('img/slide.svg')}}">
+          <p onclick="window.location = '{{ route('admin-team')}}'" >تیم ما</p>
         </div>
-        <p class="count">تعداد کل محتوا : <span id='total-count'>10</span></p>
+        <p class="count">تعداد کل محتوا : <span id='total-count'>{{ $count['team'] }}</span></p>
         <hr>
         <div class="log">
-          <p>آخرین بارگذاری : <span id='last-change'>1396/07/08</span></p>
-          <p>توسط : <span id='authur'>alireza</span></p>
-          <p>تعداد محتوای بارگذاری شده : <span id='authur-post'>120</span></p>
+            <p>آخرین تغییرات : <span id='last-change'>{{ $timestamps['team'] }}</span></p>
+            <p>توسط : <span id='authur'>Admin</span></p>
+            <p>تعداد محتوای بارگذاری شده : <span id='authur-post'>{{ $count['team'] }}</span></p>
+
         </div>
-        <div class="more" onclick="window.location = 'setAudio.php'"></div>
+        <div class="more" onclick="window.location = '{{ route('admin-team-new')}}'"></div>
       </div>
       <div class="box">
         <div class="head-box">
-          <img src="img/slide.svg">
-          <p onclick="window.location = 'slide.php'" >لینک و اسلاید</p>
+          <img src="{{ asset('img/photo.svg')}}">
+          <p onclick="window.location = '{{ route('admin-pictures')}}'">تصاویر</p>
         </div>
-        <p class="count">تعداد کل محتوا : <span id='total-count'>10</span></p>
+        <p class="count">تعداد کل محتوا : <span id='total-count'>{{ $count['pictures'] }}</span></p>
         <hr>
         <div class="log">
-          <p>آخرین بارگذاری : <span id='last-change'>1396/07/08</span></p>
-          <p>توسط : <span id='authur'>alireza</span></p>
-          <p>تعداد محتوای بارگذاری شده : <span id='authur-post'>120</span></p>
+          <p>آخرین بارگذاری : <span id='last-change'>{{ $timestamps['pictures'] }}</span></p>
+          <p>توسط : <span id='authur'>Admin</span></p>
+          <p>تعداد محتوای بارگذاری شده : <span id='authur-post'>{{ $count['pictures'] }}</span></p>
         </div>
-        <div class="more" onclick="window.location = 'setSlide.php'"></div>
+        <div class="more" onclick="window.location = '{{ route('admin-pictures-new')}}'"></div>
       </div>
       <div class="box">
-        <div class="head-box">
-          <img src="img/shrine.svg">
-          <p onclick="window.location = 'amaken.php'">اماکن مذهبی</p>
+          <div class="head-box">
+            <img src="{{ asset('img/setting.svg')}}">
+            <p onclick="window.location = '{{ route('admin-settings')}}'" >تنظیمات سایت</p>
+          </div>
+          <hr>
+          <div class="log">
+              <p>آخرین تغییرات : <span id='last-change'>{{ $timestamps['settings'] }}</span></p>
+              <p>توسط : <span id='authur'>Admin</span></p>
+          </div>
+          <div class="more" onclick="window.location = '{{ route('admin-settings')}}'"></div>
         </div>
-        <p class="count">تعداد کل محتوا : <span id='total-count'>10</span></p>
-        <hr>
-        <div class="log">
-          <p>آخرین بارگذاری : <span id='last-change'>1396/07/08</span></p>
-          <p>توسط : <span id='authur'>alireza</span></p>
-          <p>تعداد محتوای بارگذاری شده : <span id='authur-post'>120</span></p>
-        </div>
-        <div class="more" onclick="window.location = 'setAmaken.php'"></div>
-      </div>
-      <div class="box">
-        <div class="head-box">
-          <img src="img/photo.svg">
-          <p onclick="window.location = 'aksneveshte.php'">عکس نوشته</p>
-        </div>
-        <p class="count">تعداد کل محتوا : <span id='total-count'>10</span></p>
-        <hr>
-        <div class="log">
-          <p>آخرین بارگذاری : <span id='last-change'>1396/07/08</span></p>
-          <p>توسط : <span id='authur'>alireza</span></p>
-          <p>تعداد محتوای بارگذاری شده : <span id='authur-post'>120</span></p>
-        </div>
-        <div class="more" onclick="window.location = 'setAksneveshte.php'"></div>
-      </div>
     </div>
   </main>
 
