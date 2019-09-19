@@ -38,10 +38,12 @@
   </header>
   <aside class="sidebar">
     <ul>
-    <li class="{{ $sidebar->academy }}"><a href="{{ route('admin-academy-new') }}">آکادمی</a><img src='{{ asset('img/audio2.svg')}}'></li>
-      <li class="{{ $sidebar->videos}}"><a href="{{ route('admin-videos-new') }}">ویدیو ها</a><img src='{{ asset('img/video2.svg')}}'></li>
-      <li class="{{ $sidebar->pictures}}"><a href="{{ route('admin-pictures-new') }}">تصاویر</a><img src='{{ asset('img/photo2.svg')}}'></li>
-      <li class="{{ $sidebar->team}}"><a href="{{ route('admin-academy-new') }}">تیم ما</a><img src='{{ asset('img/slide2.svg')}}'></li>
+        <li><a href="{{ route('home') }}">صفحه نخست</a></li>
+    <li class="{{ $sidebar->academy }}"><a href="{{ route('admin-academy') }}">آکادمی</a><img src='{{ asset('img/audio2.svg')}}'></li>
+      <li class="{{ $sidebar->videos}}"><a href="{{ route('admin-videos') }}">ویدیو ها</a><img src='{{ asset('img/video2.svg')}}'></li>
+      <li class="{{ $sidebar->pictures}}"><a href="{{ route('admin-pictures') }}">تصاویر</a><img src='{{ asset('img/photo2.svg')}}'></li>
+      <li class="{{ $sidebar->team}}"><a href="{{ route('admin-team') }}">تیم ما</a><img src='{{ asset('img/slide2.svg')}}'></li>
+      <li class="{{ $sidebar->sponser}}"><a href="{{ route('admin-sponser') }}">همکاران</a><img src='{{ asset('img/shrine2.svg')}}'></li>
       <li class="{{ $sidebar->settings}}"><a href="{{ route('admin-settings') }}">تنظیمات</a><img src='{{ asset('img/setting.svg')}}'></li>
     </ul>
   </aside>

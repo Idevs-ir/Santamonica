@@ -71,6 +71,21 @@
       </div>
       <div class="box">
         <div class="head-box">
+          <img src="{{ asset('img/shrine.svg')}}">
+          <p onclick="window.location = '{{ route('admin-sponser')}}'" >همکاران</p>
+        </div>
+        <p class="count">تعداد کل محتوا : <span id='total-count'>{{ $count['sponser'] }}</span></p>
+        <hr>
+        <div class="log">
+            <p>آخرین تغییرات : <span id='last-change'>{{ $timestamps['sponser'] }}</span></p>
+            <p>توسط : <span id='authur'>Admin</span></p>
+            <p>تعداد محتوای بارگذاری شده : <span id='authur-post'>{{ $count['sponser'] }}</span></p>
+
+        </div>
+        <div class="more" onclick="window.location = '{{ route('admin-sponser-new')}}'"></div>
+      </div>
+      <div class="box">
+        <div class="head-box">
           <img src="{{ asset('img/photo.svg')}}">
           <p onclick="window.location = '{{ route('admin-pictures')}}'">تصاویر</p>
         </div>

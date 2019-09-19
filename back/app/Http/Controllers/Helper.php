@@ -14,6 +14,7 @@ class Helper extends Controller
         $sidebar['team']='';
         $sidebar['settings']='';
         $sidebar['academy']='';
+        $sidebar['sponser']='';
         $sidebar[$name]='active';
         return (object) $sidebar;
     }

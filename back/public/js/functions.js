@@ -7,9 +7,16 @@ function modal( name  )
   $('.modal').css('display','block');
 }
 $('.close').on('click',function(){
+  $('#content-modal').html('');
   $('.modal').css('display','none');
 });
 
+$('#cover').on('change', function(){
+  coverPrev(this);
+});
+$('#file').on('change', function(){
+  videoPrev(this);
+});
 
 function showItem(url)
 {
@@ -25,17 +32,33 @@ function showItem(url)
       {
         $('#content-modal').append("<h3>"+data.title+"</h3>");
       }
+      if(data.facebook)
+      {
+        $('#content-modal').append("<h3>"+data.facebook+"</h3>");
+      }
+      if(data.whatsapp)
+      {
+        $('#content-modal').append("<h3>"+data.whatsapp+"</h3>");
+      }
+      if(data.telegram)
+      {
+        $('#content-modal').append("<h3>"+data.telegram+"</h3>");
+      }
+      if(data.instagram)
+      {
+        $('#content-modal').append("<h3>"+data.instagram+"</h3>");
+      }
       if(data.video)
       {
-        $('#content-modal').append("<video src='"+data.video+"' controls></video>");
+        $('#content-modal').append("<video src='"+data.video+"' controls style='width:100%; height:300px;'></video>");
       }
       if(data.image)
       {
-        $('#content-modal').append("<img src='"+data.image+"' >");
+        $('#content-modal').append("<img src='"+data.image+"' style='width:100%; height:300px; object-fit:cover;'>");
       }
       if(data.description)
       {
-        $('#content-modal').append("<p>"+data.title+"</p>");
+        $('#content-modal').append("<p>"+data.description+"</p>");
       }
       if(data.created_at)
       {
