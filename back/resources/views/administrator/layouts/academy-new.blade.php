@@ -12,7 +12,7 @@
         <form class="form" action="@if($type=='new'){{ route('admin-academy-add') }}@else{{ route('admin-academy-update' , ['academy'=> $item->id]) }}@endif" method="post" enctype="multipart/form-data">
             @csrf
           <div class="form-controll">
-          <input type="text" name="title" placeholder="عنوان آکادمی ..." value="@if(isset($item)){{ $item->title }} @else{{ old('title') }}@endif" required>
+          <input type="text" name="title" placeholder="عنوان آکادمی ..." value="@if(isset($item)){{ $item->title }}@else{{ old('title') }}@endif" required>
           </div>
           <div class="form-controll">
             <div class="form-controll-both">

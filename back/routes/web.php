@@ -23,7 +23,7 @@ Route::prefix('administrator')->middleware('auth')->group(function(){
     Route::get('', 'HomeController@index')->name('home');
     Route::get('videos', 'VideoController@index')->name('admin-videos');
     Route::get('academy', 'AcademyController@index')->name('admin-academy');
-    Route::get('settings', 'HomeController@index')->name('admin-settings');
+    Route::get('settings', 'SettingController@index')->name('admin-settings');
     Route::get('pictures', 'PictureController@index')->name('admin-pictures');
     Route::get('team', 'TeamController@index')->name('admin-team');
     Route::get('sponser', 'SponserController@index')->name('admin-sponser');
@@ -54,7 +54,7 @@ Route::prefix('administrator')->middleware('auth')->group(function(){
 
     Route::post('videos/update/{video}', 'VideoController@update')->name('admin-videos-update');
     Route::post('academy/update/{academy}', 'AcademyController@update')->name('admin-academy-update');
-    Route::post('settings/update', 'HomeController@index')->name('admin-settings-update');
+    Route::post('settings/update', 'SettingController@update')->name('admin-settings-update');
     Route::post('pictures/update/{picture}', 'PictureController@update')->name('admin-pictures-update');
     Route::post('team/update/{team}', 'TeamController@update')->name('admin-team-update');
     Route::post('sponser/update/{sponser}', 'SponserController@update')->name('admin-sponser-update');

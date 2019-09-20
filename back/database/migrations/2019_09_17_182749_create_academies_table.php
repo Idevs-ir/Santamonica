@@ -17,8 +17,8 @@ class CreateAcademiesTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->string('video');
-            $table->string('poster');
-            $table->text('description');
+            $table->string('poster')->nullable();
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

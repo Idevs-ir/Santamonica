@@ -12,7 +12,7 @@
         <form class="form" action="@if($type=='new'){{ route('admin-team-add') }}@else{{ route('admin-team-update' , ['team'=> $item->id]) }}@endif" method="post" enctype="multipart/form-data">
             @csrf
           <div class="form-controll">
-          <input type="text" name="title" placeholder="عنوان  ..." value="@if(isset($item)){{ $item->title }} @else{{ old('title') }}@endif" required>
+          <input type="text" name="title" placeholder="عنوان  ..." value="@if(isset($item)){{ $item->title }}@else{{ old('title') }}@endif" required>
           </div>
           <div class="form-controll">
             <div class="form-controll-both">
@@ -23,16 +23,16 @@
             </div>
           </div>
           <div class="form-controll">
-          <input type="text" name="facebook" placeholder="آدرس فیسبوک  ..." value="@if(isset($item)){{ $item->title }} @else{{ old('title') }}@endif" required>
+          <input type="text" name="facebook" placeholder="آدرس فیسبوک  ..." value="@if(isset($item)){{ $item->title }}@else{{ old('title') }}@endif" required>
           </div>
           <div class="form-controll">
-          <input type="text" name="whatsapp" placeholder="آدرس واتساپ  ..." value="@if(isset($item)){{ $item->title }} @else{{ old('title') }}@endif" required>
+          <input type="text" name="whatsapp" placeholder="آدرس واتساپ  ..." value="@if(isset($item)){{ $item->title }}@else{{ old('title') }}@endif" required>
           </div>
           <div class="form-controll">
-          <input type="text" name="telegram" placeholder="آدرس تلگرام  ..." value="@if(isset($item)){{ $item->title }} @else{{ old('title') }}@endif" required>
+          <input type="text" name="telegram" placeholder="آدرس تلگرام  ..." value="@if(isset($item)){{ $item->title }}@else{{ old('title') }}@endif" required>
           </div>
           <div class="form-controll">
-          <input type="text" name="instagram" placeholder="آدرس اینستاگرام  ..." value="@if(isset($item)){{ $item->title }} @else{{ old('title') }}@endif" required>
+          <input type="text" name="instagram" placeholder="آدرس اینستاگرام  ..." value="@if(isset($item)){{ $item->title }}@else{{ old('title') }}@endif" required>
           </div>
 
           <div class="form-controll">

@@ -33,7 +33,9 @@
         <h1>{{ $title }}</h1>
         <p id="date"></p>
       </div>
+    @if(isset($exbtn))
     <a class="header-nav" href="{{ route($exbtn->route) }}">{{ $exbtn->name }}</a>
+    @endif
     </div>
   </header>
   <aside class="sidebar">

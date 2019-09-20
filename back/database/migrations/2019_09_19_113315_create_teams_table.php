@@ -17,10 +17,10 @@ class CreateTeamsTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->string('image');
-            $table->string('facebook');
-            $table->string('instagram');
-            $table->string('telegram');
-            $table->string('whatsapp');
+            $table->string('facebook')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('telegram')->nullable();
+            $table->string('whatsapp')->nullable();
             $table->timestamps();
         });
     }
