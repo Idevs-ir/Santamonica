@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\academy;
 use App\Http\Requests\AcademyPost;
+use App\Setting;
 use Illuminate\Http\Request;
 use stdClass;
 
@@ -55,9 +56,9 @@ class AcademyController extends Controller
         return redirect(route('admin-academy'));
     }
 
-    public function show(academy $academy)
+    public function show()
     {
-        //
+        return view('web.layouts.academy')->with( ['items' => academy::all() , 'setting' => Setting::find(1)]);
     }
 
     public function showAjax(academy $academy)

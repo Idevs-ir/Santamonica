@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\TeamPost;
+use App\Setting;
 use App\Team;
 use Illuminate\Http\Request;
 use stdClass;
@@ -57,9 +58,9 @@ class TeamController extends Controller
         return redirect(route('admin-team'));
     }
 
-    public function show(Team $team)
+    public function show()
     {
-        //
+        return view('web.layouts.team')->with( ['items' => Team::all() , 'setting' => Setting::find(1)]);
     }
 
     public function showAjax(Team $team)

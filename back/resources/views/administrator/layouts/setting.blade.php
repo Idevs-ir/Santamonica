@@ -48,6 +48,9 @@
           <input type="text" name="facebook" placeholder="لینک فیسبوک ..." value="@if(isset($item)){{ $item->facebook }}@else{{ old('facebook') }}@endif">
           </div>
           <div class="form-controll">
+              <textarea name="about" rows="10" placeholder="متن درباره ما ..." required>@if(isset($item)){{ $item->about }}@else{{ old('about')}}@endif</textarea>
+            </div>
+          <div class="form-controll">
             <input type="submit" name="submit" value="ثبت اطلاعات">
           </div>
         </form>

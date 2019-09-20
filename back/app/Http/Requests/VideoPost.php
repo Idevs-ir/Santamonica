@@ -24,7 +24,7 @@ class VideoPost extends FormRequest
     public function rules()
     {
         return [
-            'video'=>'required'
+            'videofile'=>'required'
         ];
     }
 }

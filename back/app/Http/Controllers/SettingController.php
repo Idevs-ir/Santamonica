@@ -21,9 +21,9 @@ class SettingController extends Controller
     }
 
 
-    public function show(setting $setting)
+    public function show()
     {
-        //
+        return view('web.layouts.contact-us')->with( ['setting' => Setting::find(1)]);
     }
 
     /**
@@ -45,6 +45,7 @@ class SettingController extends Controller
         $setting->telegram = $request->telegram;
         $setting->twitter = $request->twitter;
         $setting->facebook = $request->facebook;
+        $setting->about = $request->about;
         $setting->instagram = $request->instagram;
         if(!empty($request->logo))
         {

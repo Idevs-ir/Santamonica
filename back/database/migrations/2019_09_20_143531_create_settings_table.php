@@ -25,6 +25,7 @@ class CreateSettingsTable extends Migration
             $table->string('twitter')->nullable();
             $table->string('facebook')->nullable();
             $table->text('address')->nullable();
+            $table->text('about')->nullable();
             $table->string('logo');
             $table->timestamps();
         });

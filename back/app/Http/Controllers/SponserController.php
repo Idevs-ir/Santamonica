@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SponserPost;
+use App\Setting;
 use App\Sponser;
 use Illuminate\Http\Request;
 use stdClass;
@@ -52,9 +53,9 @@ class SponserController extends Controller
         return redirect(route('admin-sponser'));
     }
 
-    public function show(Sponser $sponser)
+    public function show()
     {
-        //
+        return view('web.layouts.about-us')->with( ['items' => Sponser::all() , 'setting' => Setting::find(1)]);
     }
 
     public function showAjax(Sponser $sponser)

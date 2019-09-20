@@ -67,3 +67,10 @@ Route::prefix('administrator')->middleware('auth')->group(function(){
     Route::post('sponser/add', 'SponserController@store')->name('admin-sponser-add');
 });
 
+Route::get('', 'HomeController@show')->name('web');
+Route::get('videos', 'VideoController@show')->name('videos');
+Route::get('about-us', 'SponserController@show')->name('about');
+Route::get('academy', 'AcademyController@show')->name('academy');
+Route::get('contact-us', 'SettingController@show')->name('contact');
+Route::get('gallery', 'PictureController@show')->name('gallery');
+Route::get('team', 'TeamController@show')->name('team');

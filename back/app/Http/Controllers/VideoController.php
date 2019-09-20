@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Video;
 use App\Http\Requests\VideoPost;
+use App\Setting;
 use Illuminate\Http\Request;
 use stdClass;
 
@@ -53,9 +54,9 @@ class VideoController extends Controller
         return redirect(route('admin-videos'));
     }
 
-    public function show(Video $video)
+    public function show()
     {
-        //
+        return view('web.layouts.video')->with( ['items' => Video::all() , 'setting' => Setting::find(1)]);
     }
 
     public function showAjax(Video $video)

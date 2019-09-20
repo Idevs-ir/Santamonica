@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PicturePost;
 use App\Picture;
+use App\Setting;
 use Illuminate\Http\Request;
 use stdClass;
 
@@ -52,9 +53,9 @@ class PictureController extends Controller
         return redirect(route('admin-pictures'));
     }
 
-    public function show(Picture $picture)
+    public function show()
     {
-        //
+        return view('web.layouts.gallery')->with( ['items' => Picture::all() , 'setting' => Setting::find(1)]);
     }
 
     public function showAjax(Picture $picture)
